@@ -1,0 +1,6 @@
+---
+ansible_ssh_host: 169.254.255.61
+ansible_user: saby
+ansible_password: saby
+ansible_network_os:iosxr
+...
