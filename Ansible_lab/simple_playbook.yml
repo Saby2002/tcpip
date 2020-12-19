@@ -1,0 +1,13 @@
+---
+- name: TEST PLAYBOOK FOR ARISTA
+  hosts: EOS1
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: COLLECTION INFOR FROM ROUTER
+      ios_command:
+         commands:
+           - show version
+           - show hostname
+...

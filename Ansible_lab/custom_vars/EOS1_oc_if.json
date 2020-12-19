@@ -1,0 +1,283 @@
+{
+
+    "interfaces": {
+
+      "interface": [
+
+        {
+
+          "name": "Ethernet3",
+
+          "config": {
+
+            "name": "Ethernet3",
+
+            "type": "ethernetCsmacd",
+
+            "mtu": 1514,
+
+            "enabled": true
+
+          },
+
+          "subinterfaces": {
+
+            "subinterface": [
+
+              {
+
+                "index": 0,
+
+                "config": {
+
+                  "index": 0,
+
+                  "description": "Link to SROS",
+
+                  "enabled": true
+
+                },
+
+                "ipv4": {
+
+                  "addresses": {
+
+                    "address": [
+
+                      {
+
+                        "ip": "10.4.0.1",
+
+                        "config": {
+
+                          "ip": "10.4.0.1",
+
+                          "prefix_length": 31
+
+                        }
+
+                      }
+
+                    ]
+
+                  }
+
+                }
+
+              }
+
+            ]
+
+          }
+
+        },
+
+        {
+
+          "name": "Ethernet5",
+
+          "config": {
+
+            "name": "Ethernet2",
+
+            "type": "ethernetCsmacd",
+
+            "mtu": 1514,
+
+            "enabled": true
+
+          },
+
+          "subinterfaces": {
+
+            "subinterface": [
+
+              {
+
+                "index": 0,
+
+                "config": {
+
+                  "index": 0,
+
+                  "description": "Link to VX1",
+
+                  "enabled": true
+
+                },
+
+                "ipv4": {
+
+                  "addresses": {
+
+                    "address": [
+
+                      {
+
+                        "ip": "10.2.0.1",
+
+                        "config": {
+
+                          "ip": "10.2.0.1",
+
+                          "prefix_length": 31
+
+                        }
+
+                      }
+
+                    ]
+
+                  }
+
+                }
+
+              }
+
+            ]
+
+          }
+
+        },
+
+        {
+
+          "name": "Ethernet4",
+
+          "config": {
+
+            "name": "Ethernet2",
+
+            "type": "ethernetCsmacd",
+
+            "mtu": 1514,
+
+            "enabled": true
+
+          },
+
+          "subinterfaces": {
+
+            "subinterface": [
+
+              {
+
+                "index": 0,
+
+                "config": {
+
+                  "index": 0,
+
+                  "description": "Link to XR2",
+
+                  "enabled": true
+
+                },
+
+                "ipv4": {
+
+                  "addresses": {
+
+                    "address": [
+
+                      {
+
+                        "ip": "10.1.0.1",
+
+                        "config": {
+
+                          "ip": "10.1.0.0",
+
+                          "prefix_length": 31
+
+                        }
+
+                      }
+
+                    ]
+
+                  }
+
+                }
+
+              }
+
+            ]
+
+          }
+
+        },
+
+        {
+
+          "name": "Loopback0",
+
+          "config": {
+
+            "name": "Loopback0",
+
+            "type": "softwareLoopback",
+
+            "enabled": true
+
+          },
+
+          "subinterfaces": {
+
+            "subinterface": [
+
+              {
+
+                "index": 0,
+
+                "config": {
+
+                  "index": 0,
+
+                  "description": "Announced in BGP",
+
+                  "enabled": true
+
+                },
+
+                "ipv4": {
+
+                  "addresses": {
+
+                    "address": [
+
+                      {
+
+                        "ip": "10.0.255.66",
+
+                        "config": {
+
+                          "ip": "10.0.255.66",
+
+                          "prefix_length": 32
+
+                        }
+
+                      }
+
+                    ]
+
+                  }
+
+                }
+
+              }
+
+            ]
+
+          }
+
+        }
+
+      ]
+
+    }
+
+  }
+
+  

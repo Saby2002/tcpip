@@ -1,0 +1,215 @@
+{
+
+    "interfaces": {
+
+      "interface": [
+
+        {
+
+          "name": "1/1/2",
+
+          "config": {
+
+            "name": "1/1/2",
+
+            "type": "ethernetCsmacd",
+
+            "mtu": 1514,
+
+            "enabled": true
+
+          },
+
+          "subinterfaces": {
+
+            "subinterface": [
+
+              {
+
+                "index": 0,
+
+                "config": {
+
+                  "index": 0,
+
+                  "description": "Link to XR2",
+
+                  "enabled": true
+
+                },
+
+                "ipv4": {
+
+                  "addresses": {
+
+                    "address": [
+
+                      {
+
+                        "ip": "10.4.1.1",
+
+                        "config": {
+
+                          "ip": "10.4.1.1",
+
+                          "prefix_length": 31
+
+                        }
+
+                      }
+
+                    ]
+
+                  }
+
+                }
+
+              }
+
+            ]
+
+          }
+
+        },
+
+        {
+
+          "name": "1/1/4",
+
+          "config": {
+
+            "name": "1/1/4",
+
+            "type": "ethernetCsmacd",
+
+            "mtu": 1514,
+
+            "enabled": true
+
+          },
+
+          "subinterfaces": {
+
+            "subinterface": [
+
+              {
+
+                "index": 0,
+
+                "config": {
+
+                  "index": 0,
+
+                  "description": "Link to EOS1",
+
+                  "enabled": true
+
+                },
+
+                "ipv4": {
+
+                  "addresses": {
+
+                    "address": [
+
+                      {
+
+                        "ip": "10.4.0.1",
+
+                        "config": {
+
+                          "ip": "10.4.0.1",
+
+                          "prefix_length": 31
+
+                        }
+
+                      }
+
+                    ]
+
+                  }
+
+                }
+
+              }
+
+            ]
+
+          }
+
+        },
+
+        {
+
+          "name": "system",
+
+          "config": {
+
+            "name": "system",
+
+            "type": "softwareLoopback",
+
+            "enabled": true
+
+          },
+
+          "subinterfaces": {
+
+            "subinterface": [
+
+              {
+
+                "index": 0,
+
+                "config": {
+
+                 "index": 0,
+
+                  "description": "Announced in BGP",
+
+                  "enabled": true
+
+                },
+
+                "ipv4": {
+
+                  "addresses": {
+
+                    "address": [
+
+                      {
+
+                        "ip": "10.0.255.63",
+
+                        "config": {
+
+                          "ip": "10.0.255.63",
+
+                          "prefix_length": 32
+
+                        }
+
+                      }
+
+                    ]
+
+                  }
+
+                }
+
+              }
+
+            ]
+
+          }
+
+        }
+
+      ]
+
+    }
+
+  }
+
+  

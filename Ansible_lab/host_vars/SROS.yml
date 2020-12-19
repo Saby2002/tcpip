@@ -2,6 +2,6 @@
 ansible_ssh_host: 169.254.255.63
 ansible_user: admin
 ansible_password: admin
-ansible_network_os:sros
+ansible_network_os: sros
 ...
 

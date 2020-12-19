@@ -1,0 +1,25 @@
+---
+- name: CONFIGURING NON-LINUX HOSTS
+  hosts: non_linux
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: IMPORTING VARS
+      include_vars: "custom_vars/{{ inventory_hostname }}_oc_if.json"
+
+    - debug:
+        msg: "{{ interfaces }}"
+
+- name: CONFIGURING LINUX HOSTS
+  hosts: linux
+  gather_facts: no
+
+  tasks:
+    - name: IMPORTING VARS
+      include_vars: "custom_vars/{{ inventory_hostname }}_oc_if.json"
+
+    - debug:
+        msg: "{{ interfaces }}"
+
+...
