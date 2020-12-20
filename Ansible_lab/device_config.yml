@@ -7,6 +7,41 @@
   tasks:
     - name: IMPORTING VARS
       include_vars: "custom_vars/{{ inventory_hostname }}_oc_if.json"
+     
+    - name: CISCO CONFIG
+      block:
+        - name: PHYSICAL
+          iosxr_config:
+            lines:
+              - mtu {{ item.config.mtu }}
+              - description {{ item.subinterfaces.subinterface[0].config.description }}
+              - no shutdown
+              - ipv4 address {{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.ip }}/{{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.prefix_length }}
+            parents:
+              - interface {{ item.config.name }}
+          loop: "{{ interfaces.interface }}"
+          when: item.config.type == 'ethernetCsmacd' 
+
+        - name: LOGICAL
+          iosxr_config:
+            lines:
+              - description {{ item.subinterfaces.subinterface[0].config.description }}
+              - no shutdown
+              - ipv4 address {{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.ip }}/{{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.prefix_length }}
+            parents:
+              - interface {{ item.config.name }}
+          loop: "{{ interfaces.interface }}"
+          when: item.config.type == 'softwareLoopback'
+      when: ansible_network_os == 'iosxr' 
+      
+
+      #    - name: ARISTA CONFIG
+      #block:
+      #when: ansible_network_os == 'eos' 
+
+      #    - name: NOKIA CONFIG
+      #block:
+      #when: ansible_network_os == 'sros'   
 
     - debug:
         msg: "{{ interfaces }}"
