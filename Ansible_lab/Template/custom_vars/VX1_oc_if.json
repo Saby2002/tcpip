@@ -1,0 +1,145 @@
+{
+
+    "interfaces": {
+
+        "interface": [
+
+        {
+
+            "name": "swp2",
+
+            "config": {
+
+            "name": "swp2",
+
+            "type": "ethernetCsmacd",
+
+            "mtu": 1514,
+
+            "enabled": true
+
+            },
+
+            "subinterfaces": {
+
+            "subinterface": [
+
+                {
+
+                "index": 0,
+
+                "config": {
+
+                    "index": 0,
+
+                    "description": "Link to XR1",
+
+                    "enabled": true
+
+                },
+
+                "ipv4": {
+
+                    "addresses": {
+
+                    "address": [
+
+                        {
+
+                        "ip": "10.0.0.4",
+
+                        "config": {
+
+                            "ip": "10.0.0.4",
+
+                            "prefix_length": 31
+
+                        }
+
+                       }
+
+                    ]
+
+                    }
+
+                }
+
+                }
+
+            ]
+
+            }
+
+        },
+
+        {
+
+            "name": "lo",
+
+            "config": {
+
+            "name": "lo",
+
+            "type": "softwareLoopback",
+
+            "enabled": true
+
+            },
+
+            "subinterfaces": {
+
+            "subinterface": [
+
+                {
+
+                "index": 0,
+
+                "config": {
+
+                    "index": 0,
+
+                    "description": "Announced in BGP",
+
+                    "enabled": true
+
+                },
+
+                "ipv4": {
+
+                    "addresses": {
+
+                    "address": [
+
+                        {
+
+                        "ip": "10.0.255.62",
+
+                        "config": {
+
+                            "ip": "10.0.255.62",
+
+                            "prefix_length": 32
+
+                        }
+
+                        }
+
+                    ]
+
+                    }
+
+                }
+
+                }
+
+            ]
+
+            }
+
+        }
+
+        ]
+
+    }
+
+}

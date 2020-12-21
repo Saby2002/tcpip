@@ -1,0 +1,6 @@
+---
+ansible_ssh_host: 169.254.255.62
+ansible_user: cumulus
+ansible_password: CumulusLinux!
+...
+

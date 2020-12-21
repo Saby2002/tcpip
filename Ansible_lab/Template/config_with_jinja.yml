@@ -1,0 +1,23 @@
+---
+- name: CONFIGURING NON-LINUX HOSTS
+  hosts: non_linux
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: IMPORTING VARS
+      include_vars: "custom_vars/{{ inventory_hostname }}_oc_if.json"
+
+    - name: CREATING FOLDER
+      file:
+        dest: Ansible_jinja_config
+        state: directory
+      
+
+    - name: TEMPLATING CONFIGURATION
+      template:
+        src: jinja_templates/{{ ansible_network_os }}_if_conf.j2
+        dest: Ansible_jinja_config/{{ inventory_hostname }}.conf
+        
+...   
+
