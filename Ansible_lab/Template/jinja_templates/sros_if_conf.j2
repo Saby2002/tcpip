@@ -1,0 +1,50 @@
+configure global
+{# Port Configuration #}
+{% for iface in interfaces.interface %}
+{% if iface.config.type == 'ethernetCsmacd' %}
+  port {{ iface.config.name }}
+{% if iface.config.enabled %}
+     admin-state enable
+{% else %}
+     admin-state disable
+{% endif %}
+{% if iface.config.mtu %}
+  ethernet mtu {{ iface.config.mtu }}
+{% endif %}
+   exit
+{% endif %}
+{% endfor %}
+
+{# Router Interface Configuration #}
+  router Base
+{% for iface in interfaces.interface %}
+{% if iface.subinterfaces.subinterface %}
+{% for subiface in iface.subinterfaces.subinterface %}
+{% if iface.config.type == 'ethernetCsmacd' %}
+    interface if_{{ iface.config.name }}_{{ subiface.config.index }}
+       port {{ iface.config.name}}
+{% else %}
+    interface {{ iface.config.name }}
+{% if iface.config.name != 'system' %}
+       loopback
+{% endif %}
+{% endif %}
+{% if subiface.config.enabled %}
+       admin-state enable
+{% else %}
+       admin-state disable
+{% endif %}
+{% if subiface.config.description is defined %}
+       description {{ subiface.config.description }}
+{% endif %}
+{% if subiface.ipv4 %}
+{% for ipadd in subiface.ipv4.addresses.address %}
+      ipv4 primary address {{ ipadd.config.ip }} prefix-length {{ ipadd.config.prefix_length }}
+{% endfor %}
+{% endif %}
+   exit
+{% endfor %}
+{% endif %}
+{% endfor %}
+commit
+

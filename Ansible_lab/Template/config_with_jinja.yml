@@ -18,6 +18,43 @@
       template:
         src: jinja_templates/{{ ansible_network_os }}_if_conf.j2
         dest: Ansible_jinja_config/{{ inventory_hostname }}.conf
-        
+
+    - name: CONFIGURING CISCO
+      iosxr_config:
+        src: Ansible_jinja_config/{{ inventory_hostname }}.conf 
+      when: ansible_network_os == 'iosxr'
+
+    - name: CONFIGURING ARISTA
+      eos_config:
+        src: Ansible_jinja_config/{{ inventory_hostname }}.conf      
+      when: ansible_network_os == 'eos'
+      become: yes
+      become_method: enable
+
+    - name: CONFIGURING NOKIA
+      sros_config:
+        src: Ansible_jinja_config/{{ inventory_hostname }}.conf      
+      when: ansible_network_os == 'sros'
+
+- name: CONFIGURING LINUX HOSTS
+  hosts: linux
+  gather_facts: no
+
+  tasks:
+    - name: IMPORTING VARS
+      include_vars: "custom_vars/{{ inventory_hostname }}_oc_if.json"
+      delegate_to: localhost
+
+    - name: TEMPLATING CONFIGURATION
+      template:
+        src: jinja_templates/cumulus_if_conf.j2
+        dest: Ansible_jinja_config/{{ inventory_hostname }}.conf
+      delegate_to: localhost
+     
+    - name: CONFIGURING VX1
+      nclu:
+        template: "{{ lookup('file', 'Ansible_jinja_config/{{ inventory_hostname }}.conf') }}" 
+        commit: true
+
 ...   
 
