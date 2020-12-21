@@ -35,13 +35,83 @@
       when: ansible_network_os == 'iosxr' 
       
 
-      #    - name: ARISTA CONFIG
-      #block:
-      #when: ansible_network_os == 'eos' 
+    - name: ARISTA CONFIG
+      block:
+        - name: PHYSICAL
+          eos_config:
+            lines:
+              - no switchport
+              - l2 mtu {{ item.config.mtu }}
+              - description {{ item.subinterfaces.subinterface[0].config.description }}
+              - no shutdown
+              - ip address {{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.ip }}/{{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.prefix_length }}
+            parents:
+              - interface {{ item.config.name }}
+          loop: "{{ interfaces.interface }}"
+          when: item.config.type == 'ethernetCsmacd'
+          become: yes
+          become_method: enable
 
-      #    - name: NOKIA CONFIG
-      #block:
-      #when: ansible_network_os == 'sros'   
+        - name: LOGICAL IF
+          eos_config:
+            lines:
+              - description {{ item.subinterfaces.subinterface[0].config.description }}
+              - no shutdown
+              - ip address {{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.ip }}/{{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.prefix_length }}
+            parents:
+              - interface {{ item.config.name }}
+          loop: "{{ interfaces.interface }}"
+          when: item.config.type == 'softwareLoopback'
+          become: yes
+          become_method: enable
+
+
+      when: ansible_network_os == 'eos' 
+
+    - name: NOKIA CONFIG
+      block:
+        - name: PORT CONFIG
+          sros_config:
+            lines:
+              - admin-state enable
+              - ethernet mtu {{ item.config.mtu }}
+              - commit   
+            parents:
+              - configure global
+              - port {{ item.config.name }}
+          loop: "{{ interfaces.interface }}"
+          when: item.config.type == 'ethernetCsmacd'
+ 
+        - name: PHYSICAL IF
+          sros_config:
+            lines:
+              - description "{{ item.subinterfaces.subinterface[0].config.description }}"
+              - no shutdown
+              - port {{ item.config.name }}
+              - ipv4 primary address {{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.ip }} {{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.prefix_length }}
+              - commit
+            parents:
+              - configure global
+              - router "Base"
+              - interface if_{{ item.config.name }}_{{ item.subinterfaces.subinterface[0].config.index }}
+          loop: "{{ interfaces.interface }}"
+          when: item.config.type == 'ethernetCsmacd'
+
+        - name: LOGICAL IF
+          sros_config:
+            lines:
+              - description "{{ item.subinterfaces.subinterface[0].config.description }}"
+              - no shutdown
+              - ipv4 primary address {{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.ip }} {{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.prefix_length }}
+              - commit
+            parents:
+              - configure global
+              - router "Base"
+              - interface {{ item.config.name }}
+          loop: "{{ interfaces.interface }}"
+          when: item.config.type == 'softwareLoopback'
+
+      when: ansible_network_os == 'sros'   
 
     - debug:
         msg: "{{ interfaces }}"
@@ -53,8 +123,27 @@
   tasks:
     - name: IMPORTING VARS
       include_vars: "custom_vars/{{ inventory_hostname }}_oc_if.json"
+    - name: PHYSICAL IF
+      nclu:
+        commands:
+          - add interface {{ item.config.name }} ip address {{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.ip }}/{{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.prefix_length }}
+          - add interface {{ item.config.name }} mtu {{ item.config.mtu }}
+          - add interface {{ item.config.name }} alias "{{ item.subinterfaces.subinterface[0].config.description }}"
+        commit: true
+      loop: "{{ interfaces.interface }}"
+      when: item.config.type == 'ethernetCsmacd'
+
+    - name: LOOPBACK IF
+      nclu:
+        commands:
+          - add loopback {{ item.config.name }} ip address {{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.ip }}/{{ item.subinterfaces.subinterface[0].ipv4.addresses.address[0].config.prefix_length }}
+        commit: true
+      loop: "{{ interfaces.interface }}"
+      when: item.config.type == 'softwareLoopback'
+
 
     - debug:
         msg: "{{ interfaces }}"
 
 ...
+
