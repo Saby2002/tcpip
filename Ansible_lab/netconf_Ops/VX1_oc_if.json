@@ -1,0 +1,107 @@
+{
+  "openconfig-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "swp2",
+        "config": {
+          "name": "swp2",
+          "type": "ethernetCsmacd",
+          "mtu": 1514,
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0,
+                "description": "Link to XR1",
+                "enabled": true
+              },
+              "openconfig-if-ip:ipv4": {
+                "addresses": {
+                  "address": [
+                    {
+                      "ip": "10.0.0.5",
+                      "config": {
+                        "ip": "10.0.0.5",
+                        "prefix-length": 31
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "swp3",
+        "config": {
+          "name": "swp3",
+          "type": "ethernetCsmacd",
+          "mtu": 1514,
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0,
+                "description": "Link to EOS1",
+                "enabled": true
+              },
+              "openconfig-if-ip:ipv4": {
+                "addresses": {
+                  "address": [
+                    {
+                      "ip": "10.2.0.0",
+                      "config": {
+                        "ip": "10.2.0.0",
+                        "prefix-length": 31
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "lo",
+        "config": {
+          "name": "lo",
+          "type": "softwareLoopback",
+          "enabled": true
+        },
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "index": 0,
+              "config": {
+                "index": 0,
+                "description": "Announced in BGP",
+                "enabled": true
+              },
+              "openconfig-if-ip:ipv4": {
+                "addresses": {
+                  "address": [
+                    {
+                      "ip": "10.0.255.62",
+                      "config": {
+                        "ip": "10.0.255.62",
+                        "prefix-length": 32
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

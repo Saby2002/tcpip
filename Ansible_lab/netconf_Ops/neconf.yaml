@@ -1,0 +1,8 @@
+---
+- name: DEVICE MANAGEMENT WITH NETCONF
+  hosts: non_linux
+  gather_fats: no
+  connection: netconf
+  roles:
+    - netconf_management 
+...

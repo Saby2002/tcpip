@@ -1,0 +1,5 @@
+Generate JTOX drivers
+Convert JSON data-models in XML NETCONF Payloads
+Modify XML to satisfy vendor's requirments
+Provision network elements over NETCONF
+Collect confirmation about operational status of the configured items
