@@ -1,0 +1,2 @@
+[nokia]
+SROS ansible_ssh_host=169.254.255.63 ansible_user=admin ansible_password=admin

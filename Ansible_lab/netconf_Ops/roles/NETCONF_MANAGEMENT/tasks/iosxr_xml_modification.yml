@@ -1,0 +1,21 @@
+---
+- name: XML MODIFICATION <stripping XML Header>
+  replace:
+    dest: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+    regexp: '<\?.+\?>\n'
+    replace: ''
+
+- name: XML MODIFICATION < replacing with idx= >
+  replace: 
+    dest: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+    regexp: 'type>oc-if'
+    replace: 'type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx'
+
+- name: XML MODIFICATION < removing the namespace >
+  replace: 
+    dest: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+    regexp: 'xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type"'
+    replace: ''
+
+...
+

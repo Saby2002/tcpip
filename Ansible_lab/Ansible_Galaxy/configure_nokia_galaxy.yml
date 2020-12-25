@@ -1,0 +1,18 @@
+---
+- name: CONFIGURE WITH GALAXY
+  hosts: nokia
+  gather_facts: no
+  connection: network_cli
+
+  vars:
+    ansible_network_os: nokia.sros.md
+
+  collections:
+    - nokia.sros
+
+  tasks:
+    - name: Test Config
+      cli_config:
+        config:
+          configure system
+            name SROS-R4

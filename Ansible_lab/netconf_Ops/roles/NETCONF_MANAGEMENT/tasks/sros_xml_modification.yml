@@ -1,0 +1,21 @@
+---
+- name: XML MODIFICATION <stripping XML Header>
+  replace:
+    dest: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+    regexp: '<\?.+\?>\n'
+    replace: ''
+
+- name: XML MODIFICATION < remove the type>
+  replace: 
+    dest: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+    regexp: '>oc-if:'
+    replace: '>'
+
+- name: XML MODIFICATION < replacing with all the SROS headers >
+  replace:
+    dest: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+    regexp: '<nc:.+">'
+    replace: '<nc:config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:oc-if="http://openconfig.net/yang/interfaces" xmlns:oc-ip="http://openconfig.net/yang/interfaces/ip" xmlns:oc-vlan="http://openconfig.net/yang/vlan" xmlns:oc-eth="http://openconfig.net/yang/interfaces/ethernet" xmlns:oc-inet="http://openconfig.net/yang/types/inet" xmlns:oc-ip-ext="http://openconfig.net/yang/interfaces/ip-ext" xmlns:oc-lag="http://openconfig.net/yang/interfaces/aggregate" xmlns:oc-types="http://openconfig.net/yang/openconfig-types" xmlns:oc-vlan-types="http://openconfig.net/yang/vlan-types" xmlns:oc-yang="http://openconfig.net/yang/types/yang">'
+
+...
+

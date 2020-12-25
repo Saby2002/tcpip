@@ -1,0 +1,32 @@
+---
+- name: XML MODIFICATION <stripping XML Header>
+  replace:
+    dest: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+    regexp: '<\?.+\?>\n'
+    replace: ''
+
+- name: XML MODIFICATION <no switchport>
+  replace: 
+    dest: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+    regexp: '<oc-if:interface><oc-if:name>'
+    replace: '<oc-if:interface><oc-if:name nc:operation="replace">'
+
+- name: XML MODIFICATION < addr-type Primary>
+  replace: 
+    dest: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+    regexp: '<oc-ip:config><oc-ip:ip>'
+    replace: '<oc-ip:config><addr-type xmlns="https://arista.com/yang/openconfig/interfaces/augments">PRIMARY</addr-type><oc-ip:ip>'
+
+
+- name: XML MODIFICATION < removing the namespace >
+  replace: 
+    dest: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+    regexp: 'xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type"'
+    replace: ''
+
+
+- name: XML MODIFICATION < >
+  replace:
+    dest: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+    regexp: '<type>oc-if'
+    replace: 'type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaif'

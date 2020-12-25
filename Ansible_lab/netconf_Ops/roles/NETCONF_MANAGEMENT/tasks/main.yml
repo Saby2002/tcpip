@@ -1,0 +1,37 @@
+---
+- name: SET VARS 
+  set_fact:   
+    temp_dir: /tmp/Ansible_Netconf
+    oc_dir: files/public/release/models
+
+- name: CREATING TEMPLATE FOLDER
+  file:
+    dest: "{{ temp_dir }}"
+    state: directory
+
+- name: CREATE JTOX DRIVER
+  shell: "pyang -f jtox -o {{ temp_dir }}/{{ inventory_hostname }}_oc_if.jtox -p {{ oc_dir }} {{ oc_dir }}/interfaces/openconfig-i*" 
+
+- name: CREATE XML BODY 
+  shell: "json2xml -t config -o {{ temp_dir }}/{{ inventory_hostname }}_raw.xml {{ temp_dir }}/{{ inventory_hostname }}_oc_if.jtox roles/NETCONF_MANAGEMENT/files/{{ inventory_hostname }}_oc_if.json"
+
+- name: MODIFY XM BODY
+  include_tasks: "{{ ansible_network_os }}_xml_modification.yml"
+
+
+- name: CONFIGURE DEVICES
+  ignore_errors: True
+  netconf_config:
+    hostkey_verify: false
+    look_for_keys: false
+    src: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+  when: ansible_network_os != 'eos'
+
+- name: CONFIGURING ARISTA
+  netconf_config:
+    hostkey_verify: false
+    look_for_keys: false
+    src: "{{ temp_dir }}/{{ inventory_hostname }}_raw.xml"
+  when: ansible_network_os == 'eos'
+
+...
