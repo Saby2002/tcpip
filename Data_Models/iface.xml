@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="Cisco-IOS-XR-ifmgr-cfg"
+        xmlns="urn:ietf:params:xml:ns:yang:yin:1"
+        xmlns:ifmgr-cfg="http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-cfg"
+        xmlns:xr="http://cisco.com/ns/yang/cisco-xr-types">
+  <namespace uri="http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-cfg"/>
+  <prefix value="ifmgr-cfg"/>
+  <import module="Cisco-IOS-XR-types">
+    <prefix value="xr"/>
+  </import>
+  <organization>
+    <text>Cisco Systems, Inc.</text>
+  </organization>
+  <contact>
+    <text>Cisco Systems, Inc.
+Customer Service
+
+Postal: 170 West Tasman Drive
+San Jose, CA 95134
+
+Tel: +1 800 553-NETS
+
+E-mail: cs-yang@cisco.com</text>
+  </contact>
+  <description>
+    <text>This module contains a collection of YANG definitions
+for Cisco IOS-XR ifmgr package configuration.
+
+This module contains definitions
+for the following management objects:
+  global-interface-configuration: Global scoped configuration
+    for interfaces
+  interface-configurations: interface configurations
+
+Copyright (c) 2013-2018 by Cisco Systems, Inc.
+All rights reserved.</text>
+  </description>
+  <revision date="2017-09-07">
+    <description>
+      <text>Fixed type translation error.</text>
+    </description>
+  </revision>
+  <revision date="2015-07-30">
+    <description>
+      <text>Descriptions updated.</text>
+    </description>
+  </revision>
+  <revision date="2015-01-07">
+    <description>
+      <text>IOS XR 5.3.1 revision.</text>
+    </description>
+  </revision>
+  <typedef name="Interface-mode-enum">
+    <type name="enumeration">
+      <enum name="default">
+        <value value="0"/>
+        <description>
+          <text>Default Interface Mode</text>
+        </description>
+      </enum>
+      <enum name="point-to-point">
+        <value value="1"/>
+        <description>
+          <text>Point-to-Point Interface Mode</text>
+        </description>
+      </enum>
+      <enum name="multipoint">
+        <value value="2"/>
+        <description>
+          <text>Multipoint Interface Mode</text>
+        </description>
+      </enum>
+      <enum name="l2-transport">
+        <value value="3"/>
+        <description>
+          <text>L2 Transport Interface Mode</text>
+        </description>
+      </enum>
+    </type>
+    <description>
+      <text>Interface mode enum</text>
+    </description>
+  </typedef>
+  <typedef name="Interface-active">
+    <type name="string">
+      <pattern value="(act)|(pre)"/>
+    </type>
+    <description>
+      <text>act:The interface is active, pre:Preconfiguration</text>
+    </description>
+  </typedef>
+  <typedef name="Secondary-admin-state-enum">
+    <type name="enumeration">
+      <enum name="normal">
+        <value value="0"/>
+        <description>
+          <text>Normal Mode</text>
+        </description>
+      </enum>
+      <enum name="maintenance">
+        <value value="1"/>
+        <description>
+          <text>Maintenance Mode</text>
+        </description>
+      </enum>
+    </type>
+    <description>
+      <text>Secondary admin state enum</text>
+    </description>
+  </typedef>
+  <typedef name="Link-status-enum">
+    <type name="enumeration">
+      <enum name="default">
+        <value value="0"/>
+        <description>
+          <text>Display link status messages for physical links</text>
+        </description>
+      </enum>
+      <enum name="disable">
+        <value value="1"/>
+        <description>
+          <text>Disable link status messages</text>
+        </description>
+      </enum>
+      <enum name="software-interfaces">
+        <value value="2"/>
+        <description>
+          <text>Display link status messages for all interfaces</text>
+        </description>
+      </enum>
+    </type>
+    <description>
+      <text>Link status enum</text>
+    </description>
+  </typedef>
+  <container name="global-interface-configuration">
+    <description>
+      <text>Global scoped configuration for interfaces</text>
+    </description>
+    <leaf name="link-status">
+      <type name="Link-status-enum"/>
+      <default value="default"/>
+      <description>
+        <text>Enable or disable link-status messages</text>
+      </description>
+    </leaf>
+  </container>
+  <container name="interface-configurations">
+    <description>
+      <text>interface configurations</text>
+    </description>
+    <list name="interface-configuration">
+      <key value="active interface-name"/>
+      <description>
+        <text>The configuration for an interface</text>
+      </description>
+      <container name="dampening">
+        <description>
+          <text>Whether this interface's state changes are
+dampened or not</text>
+        </description>
+        <leaf name="args">
+          <type name="enumeration">
+            <enum name="default-values">
+              <value value="0"/>
+              <description>
+                <text>Default values</text>
+              </description>
+            </enum>
+            <enum name="specify-half-life">
+              <value value="1"/>
+              <description>
+                <text>Half Life Specified</text>
+              </description>
+            </enum>
+            <enum name="specify-all">
+              <value value="4"/>
+              <description>
+                <text>All Arguments except Restart Penalty
+Specified</text>
+              </description>
+            </enum>
+            <enum name="specify-rp">
+              <value value="5"/>
+              <description>
+                <text>All Arguments Specified</text>
+              </description>
+            </enum>
+          </type>
+          <description>
+            <text>Dampening Arguments</text>
+          </description>
+        </leaf>
+        <leaf name="half-life">
+          <when condition="../args = 'specify-half-life' or ../args = 'specify-all' or ../args = 'specify-rp'">
+            <description>
+              <text>../Args = SpecifyHalfLife or ../Args =
+SpecifyAll or ../Args = SpecifyRP</text>
+            </description>
+          </when>
+          <type name="uint32">
+            <range value="1..45"/>
+          </type>
+          <units name="minute"/>
+          <description>
+            <text>Decay half life (in minutes)</text>
+          </description>
+        </leaf>
+        <leaf name="reuse-threshold">
+          <when condition="../args = 'specify-all' or ../args = 'specify-rp'">
+            <description>
+              <text>../Args = SpecifyAll or ../Args = SpecifyRP</text>
+            </description>
+          </when>
+          <type name="uint32">
+            <range value="1..20000"/>
+          </type>
+          <description>
+            <text>Reuse threshold</text>
+          </description>
+        </leaf>
+        <leaf name="suppress-threshold">
+          <when condition="../args = 'specify-all' or ../args = 'specify-rp'">
+            <description>
+              <text>../Args = SpecifyAll or ../Args = SpecifyRP</text>
+            </description>
+          </when>
+          <type name="uint32">
+            <range value="1..20000"/>
+          </type>
+          <description>
+            <text>Suppress threshold</text>
+          </description>
+        </leaf>
+        <leaf name="suppress-time">
+          <when condition="../args = 'specify-all' or ../args = 'specify-rp'">
+            <description>
+              <text>../Args = SpecifyAll or ../Args = SpecifyRP</text>
+            </description>
+          </when>
+          <type name="uint32">
+            <range value="1..255"/>
+          </type>
+          <units name="minute"/>
+          <description>
+            <text>Max suppress time (in minutes)</text>
+          </description>
+        </leaf>
+        <leaf name="restart-penalty">
+          <when condition="../args = 'specify-rp'">
+            <description>
+              <text>../Args = SpecifyRP</text>
+            </description>
+          </when>
+          <type name="uint32">
+            <range value="0..20000"/>
+          </type>
+          <description>
+            <text>Restart penalty</text>
+          </description>
+        </leaf>
+      </container>
+      <container name="mtus">
+        <description>
+          <text>The MTU configuration for the interface</text>
+        </description>
+        <list name="mtu">
+          <key value="owner"/>
+          <description>
+            <text>The MTU for the interface</text>
+          </description>
+          <leaf name="owner">
+            <type name="xr:Cisco-ios-xr-string"/>
+            <description>
+              <text>The Owner of the interface - eg. for
+'LoopbackX' main interface this is 'loopback'</text>
+            </description>
+          </leaf>
+          <leaf name="mtu">
+            <type name="uint32">
+              <range value="64..65535"/>
+            </type>
+            <mandatory value="true"/>
+            <description>
+              <text>The MTU value</text>
+            </description>
+          </leaf>
+        </list>
+      </container>
+      <container name="encapsulation">
+        <description>
+          <text>The encapsulation on the interface</text>
+        </description>
+        <leaf name="encapsulation">
+          <type name="string"/>
+          <description>
+            <text>The encapsulation - e.g. hdlc, ppp</text>
+          </description>
+        </leaf>
+        <leaf name="capsulation-options">
+          <type name="uint32"/>
+          <description>
+            <text>The options for this capsulation, usually '0'</text>
+          </description>
+        </leaf>
+      </container>
+      <leaf name="shutdown">
+        <type name="empty"/>
+        <description>
+          <text>The existence of this configuration indicates
+the interface is shut down</text>
+        </description>
+      </leaf>
+      <leaf name="interface-virtual">
+        <type name="empty"/>
+        <description>
+          <text>The mode in which an interface is running. The
+existence of this object causes the creation of
+the software virtual/subinterface.</text>
+        </description>
+      </leaf>
+      <leaf name="secondary-admin-state">
+        <type name="Secondary-admin-state-enum"/>
+        <description>
+          <text>The secondary admin state of the interface</text>
+        </description>
+      </leaf>
+      <leaf name="interface-mode-non-physical">
+        <type name="Interface-mode-enum"/>
+        <default value="default"/>
+        <description>
+          <text>The mode in which an interface is running. The
+existence of this object causes the creation of
+the software subinterface.</text>
+        </description>
+      </leaf>
+      <leaf name="bandwidth">
+        <type name="uint32">
+          <range value="0..4294967295"/>
+        </type>
+        <units name="kbit/s"/>
+        <description>
+          <text>The bandwidth of the interface in kbps</text>
+        </description>
+      </leaf>
+      <leaf name="link-status">
+        <type name="empty"/>
+        <description>
+          <text>Enable interface and line-protocol state change
+alarms</text>
+        </description>
+      </leaf>
+      <leaf name="description">
+        <type name="string"/>
+        <description>
+          <text>The description of this interface</text>
+        </description>
+      </leaf>
+      <leaf name="active">
+        <type name="Interface-active"/>
+        <description>
+          <text>Whether the interface is active or
+preconfigured</text>
+        </description>
+      </leaf>
+      <leaf name="interface-name">
+        <type name="xr:Interface-name"/>
+        <description>
+          <text>The name of the interface</text>
+        </description>
+      </leaf>
+    </list>
+  </container>
+</module>

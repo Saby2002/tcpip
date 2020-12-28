@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customers>
+	<customer>
+          <id>1/<id>
+	  <name>Cust A</name>
+	  <contacts>cust@.com</contacts>
+	  <services>
+            <service>
+              <id>1</id>
+              <stype>L2_VPN</stype>
+            <service>
+            <service>
+              <id>1</id>
+              <stype>L2_VPN</stype>
+            <service>
+            <service>
+              <id>2</id>
+              <stype>L3_VPN</stype>
+            <service>	      
+          </services>
+        </customer>
+</customers>	
+
+

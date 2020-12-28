@@ -1,0 +1,25 @@
+{
+ "YANG-module: customers": {
+   "customer": [
+      {
+         "id": 1,
+	 "name": "Super Cust 1",
+	 "mail": "info@super_cust1.com",
+	 "services" : {
+	    "service":  [
+	       {
+	          "id": 1,
+		  "type": "IPVPN",
+		  "attributes": {
+		     "rd": "10.10.10.10:1000",
+		     "rt": "65000:123456"
+		  }
+	       }
+	    ]
+	 }
+      }
+   ]
+ }
+}
+
+

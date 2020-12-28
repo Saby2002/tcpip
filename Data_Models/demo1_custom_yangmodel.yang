@@ -1,0 +1,76 @@
+module demo1_custom_yangmodel {
+    namespace "http://tcpipworld.com/training/nat-service";
+    prefix nat-srv;
+
+    organization "tcpipworld.com";
+    contact
+       "Phone: +1234567
+        Web: https://tcpipworld.com";
+
+    description
+       "This is a test YANG modules";
+
+    revision 2020-28-12 {
+       description "Initial release";
+    }
+
+    typedef Service-type {
+        type enumaration {
+            enum "L2_VPN" {
+                 value 0;
+                 description "The L2 Connectivity service";
+            }
+            enum "L3_VPN" {
+                 value 1;
+                 description "The L3 connectivity service";
+            }
+        }
+    }
+
+    container customers {
+       description "Single customer entry";
+
+       list customer {
+	   description "Single customer entry";
+
+           key "id";
+
+           leaf id {
+               description "The customer unique ID";
+               type uint32 {
+                   range "1..1000000";
+               }
+           }
+
+           leaf name {
+               description "Customer name";
+               type string;
+           }
+
+	   leaf contacts {
+	       description "Customer contact info";
+               type string;
+           }
+
+           container service {
+               list service {
+                   key "id stype";
+
+                   leaf id {
+                       description "The service unique ID";
+                       type uint32 {
+                           range "1...100000";
+                       }
+                   }
+
+		   leaf stype {
+                       description "The customer service type";
+                       type Service-type;
+                   }
+               }
+           }
+        } 
+    }
+}
+
+
