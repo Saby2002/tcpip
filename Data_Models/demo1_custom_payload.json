@@ -1,0 +1,25 @@
+{
+   "customers": {
+       "customer": [
+	    {
+	       "id": 1,
+	       "name": "Cust A",
+	       "contacts": "anc@abc.com",
+	       "services": {
+	           "service": [
+                      {
+		          "id": 1,
+	                  "type": "L2_VPN"	       
+		      },
+		      {
+		          "id": 2,
+		          "type": "L3_VPN"
+		      }
+		   
+		   ]
+	       
+	       }    
+	    }
+       ]
+   }
+}

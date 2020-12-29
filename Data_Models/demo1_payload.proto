@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package demo1_custom_yangmodel;
+
+enum ServiceType {
+    L2_VPN = 0;
+    L3_VPN = 1;
+
+}
+
+message Customer {
+     message Customer {
+         unit64 = 1;
+         string name = 2;
+         string contacts = 3;
+
+         message Services  {
+              message Service {
+                  uint64 id = 1;
+                  ServiceType servicetype = 2;
+              }
+              repeated Service service = 1;
+         }
+         Services services = 4;
+     }
+     repeated Customer  customer = 1;
+}

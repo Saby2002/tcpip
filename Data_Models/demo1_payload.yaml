@@ -1,0 +1,14 @@
+---
+customers:
+    customer:
+       - id: 1
+         name: Cust A
+         contacts: aa@bb.com
+         services:
+            service:
+               - id: 1
+                 stype: L2_VPN
+               - id: 2
+                 stype: L3_VPN
+
+...

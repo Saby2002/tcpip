@@ -1,0 +1,52 @@
+{
+   "$id": "http://tcpipworld.com/training/nat-service",
+   "$schema": "https://json-schema.org/draft-07/schema",
+   "type": "object",
+   "properties": {
+        "customers":{
+	    "type": "object",
+	    "properties": {
+	        "customer": {
+		    "type": "array",
+		    "items": {
+		        "type": "object",
+			"properties": {
+			    "id": {
+			      "type": "integer",
+			      "minimum": 1,
+			      "maximum": 100000
+			    },
+			    "name": {
+			        "type": "string"
+			    },
+			    "contacts": {
+			        "type": "string"
+			    },
+			    "services": {
+			        "type": "object",
+				"properties": {
+				    "service": {
+				       "type": "array",
+				       "items": {
+				           "type": "objects",
+					   "properties": {
+					       "id": {
+					          "type": "integer"
+					       },
+					       "stype": {
+					          "type": "string"
+					       }
+					   },
+					   "required": ["id"]
+				       }
+				    }
+				}
+			    }
+			},
+			"required": ["id"]
+		    }
+		}
+	    }
+	}
+   }
+}
