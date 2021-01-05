@@ -1,0 +1,25 @@
+
+configure terminal
+{% for iface in interfaces.interface %}
+interface {{ iface.config.name }}
+{% if iface.config.mtu is defined %}
+ mtu {{ iface.config.mtu }}
+{% endif %}
+{% if iface.config.enabled %}
+ no shutdown
+{% else %}
+ shutdown
+{% endif %}
+{% for subiface in iface.subinterfaces.subinterface %}
+{% if subiface.config.description is defined %}
+ description {{ subiface.config.description }}
+{% endif %}
+{% if subiface.ipv4 %}
+{% for ipadd in subiface.ipv4.addresses.address %}
+ ipv4 address {{ ipadd.config.ip }}/{{ ipadd.config.prefix_length }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+!
+{% endfor %}
+commit

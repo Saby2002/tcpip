@@ -1,0 +1,33 @@
+{% for iface in interfaces.interface %}
+{% if iface.config.type == 'ethernetCsmacd' %}
+{% if iface.config.mtu %}
+net add interface {{ iface.config.name }} mtu {{ iface.config.mtu }}
+{% endif %}
+{% if iface.config.enabled %}
+net del interface {{ iface.config.name }} link down
+{% else %}
+net add interface {{ iface.config.name }} link down
+{% endif %}
+{% for subiface in iface.subinterfaces.subinterface %}
+{% if subiface.config.description is defined %}
+net add interface {{ iface.config.name }} alias {{ subiface.config.description }}
+{% endif %}
+{% if subiface.ipv4 %}
+{% for ipadd in subiface.ipv4.addresses.address %}
+net add interface {{ iface.config.name }} ip address {{ ipadd.config.ip }}/{{ ipadd.config.prefix_length }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% else %}
+{% for subiface in iface.subinterfaces.subinterface %}
+{% if subiface.config.description is defined %}
+net add loopback {{ iface.config.name }} alias {{ subiface.config.description }}
+{% endif %}
+{% if subiface.ipv4 %}
+{% for ipadd in subiface.ipv4.addresses.address %}
+net add loopback {{ iface.config.name }} ip address {{ ipadd.config.ip }}/{{ ipadd.config.prefix_length }}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
