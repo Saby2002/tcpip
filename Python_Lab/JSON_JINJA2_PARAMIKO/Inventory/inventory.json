@@ -2,6 +2,13 @@
    "devices": [
      {
        "ip_address": "169.254.255.61",
+       "hostname": "XR1",
+       "nos": "cisco_iosxr",
+       "username": "saby",
+       "password": "saby"
+     },
+     {
+       "ip_address": "169.254.255.64",
        "hostname": "XR2",
        "nos": "cisco_iosxr",
        "username": "saby",

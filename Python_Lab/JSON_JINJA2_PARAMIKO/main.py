@@ -34,7 +34,7 @@ def push_config(ip_addr, hostname, config, username, password):
     get_connection_ready = paramiko.SSHClient()
     get_connection_ready.set_missing_host_key_policy(paramiko.AutoAddPolicy())        
     get_connection_ready.connect(ip_addr, port=22, username=username, password=password,
-                                 look_for_key=False, allow_agent=False)
+                                 look_for_keys=False, allow_agent=False)
     cli = get_connection_ready.invoke_shell()
     cli.recv(65535)
 
@@ -57,10 +57,17 @@ for inventory_entry in inventory['devices']:
     config_line = device_config.split('\n')
     config_line = list(filter(None, config_line))
     print(config_line)
-
     print(f'##### {datetime.datetime.now()} ##### DEVICE CONFIG  #### {inventory_entry["hostname"]} completed')
+
+    print(f'##### {datetime.datetime.now()} ##### PUSHING CONFIG  #### {inventory_entry["hostname"]}')
+
 
     push_config(ip_addr=inventory_entry['ip_address'], hostname=inventory_entry['hostname'],
                 username=inventory_entry['username'], password=inventory_entry['password'],
                 config=config_line)
+
+
+    print(f'##### {datetime.datetime.now()} ##### COMPLETED  #### {inventory_entry["hostname"]} completed')
+
+
 
