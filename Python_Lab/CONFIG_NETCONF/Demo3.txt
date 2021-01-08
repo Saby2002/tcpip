@@ -1,0 +1,4 @@
+Create Python classes for Openconfig interfaces using PyangBind
+Create JSON files with config using generated classes
+Configure Network elements using Python NCCLIENT
+Collect data using NCCLIENT
