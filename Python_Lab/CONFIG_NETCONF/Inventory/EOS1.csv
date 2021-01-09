@@ -1,0 +1,7 @@
+interfaces,type,mtu,enabled,vlan,description,ip_address
+Loopback0,loopback,,True,,BGP Loopback,10.0.255.66/32
+Ethernet3,ethernet,1514,True,,Link to SROS,10.4.0.0/31
+Ethernet5,ethernet,1514,True,,Link to XR1,10.2.0.1/31
+Ethernet4,ethernet,1514,True,,Link to XR2,10.1.0.1/31
+
+
