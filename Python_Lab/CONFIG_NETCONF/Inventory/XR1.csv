@@ -1,5 +1,6 @@
 interfaces,type,mtu,enabled,vlan,description,ip_address
-Loopback0,loopback,,True,,BGP Loopback,10.0.255.61/32
-GigabitEthernet0/0/0/0,ethernet,1514,True,,Link to SR1,10.0.0.0/31
-GigabitEthernet0/0/0/1,ethernet,1514,True,,Link to VX1,10.0.0.4/31
+Loopback0,loopback,,True,,BGP Loopback,10.0.255.65/32
+GigabitEthernet0/0/0/0,ethernet,1514,True,,Link to EOS1,10.6.0.0/31
+GigabitEthernet0/0/0/1,ethernet,1514,True,,Link to CSR,10.8.0.0/31
+GigabitEthernet0/0/0/2,ethernet,1514,True,,Link to NXOS,10.7.0.0/31
 

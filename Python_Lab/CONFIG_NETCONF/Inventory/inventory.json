@@ -2,20 +2,13 @@
    "devices": [
      {
        "ip_address": "169.254.255.61",
-       "hostname": "XR1",
+       "hostname": "XRVM",
        "nos": "iosxr",
        "username": "saby",
        "password": "saby"
      },
      {
        "ip_address": "169.254.255.64",
-       "hostname": "XR2",
-       "nos": "iosxr",
-       "username": "saby",
-       "password": "saby"
-     },
-     {
-       "ip_address": "169.254.255.66",
        "hostname": "EOS1",
        "nos": "eos",
        "username": "admin",
@@ -27,6 +20,14 @@
        "nos": "sros",
        "username": "admin",
        "password": "admin"
+     },
+     {
+       "ip_address": "169.254.255.65",
+       "hostname": "XR1",
+       "nos": "iosxr",
+       "username": "saby",
+       "password": "saby"
      }
+
    ]
 }

@@ -1,0 +1,137 @@
+{
+    "openconfig-interfaces:interfaces": {
+        "interface": [
+            {
+                "name": "Loopback0",
+                "config": {
+                    "name": "Loopback0",
+                    "type": "iana-if-type:softwareLoopback",
+                    "enabled": true
+                },
+                "subinterfaces": {
+                    "subinterface": [
+                        {
+                            "index": 0,
+                            "config": {
+                                "index": 0,
+                                "description": "BGP Loopback"
+                            },
+                            "openconfig-if-ip:ipv4": {
+                                "addresses": {
+                                    "address": [
+                                        {
+                                            "ip": "10.0.255.65",
+                                            "config": {
+                                                "ip": "10.0.255.65",
+                                                "prefix-length": 32
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "GigabitEthernet0/0/0/0",
+                "config": {
+                    "name": "GigabitEthernet0/0/0/0",
+                    "type": "iana-if-type:ethernetCsmacd",
+                    "mtu": 1514,
+                    "enabled": true
+                },
+                "subinterfaces": {
+                    "subinterface": [
+                        {
+                            "index": 0,
+                            "config": {
+                                "index": 0,
+                                "description": "Link to EOS1"
+                            },
+                            "openconfig-if-ip:ipv4": {
+                                "addresses": {
+                                    "address": [
+                                        {
+                                            "ip": "10.6.0.0",
+                                            "config": {
+                                                "ip": "10.6.0.0",
+                                                "prefix-length": 31
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "GigabitEthernet0/0/0/1",
+                "config": {
+                    "name": "GigabitEthernet0/0/0/1",
+                    "type": "iana-if-type:ethernetCsmacd",
+                    "mtu": 1514,
+                    "enabled": true
+                },
+                "subinterfaces": {
+                    "subinterface": [
+                        {
+                            "index": 0,
+                            "config": {
+                                "index": 0,
+                                "description": "Link to CSR"
+                            },
+                            "openconfig-if-ip:ipv4": {
+                                "addresses": {
+                                    "address": [
+                                        {
+                                            "ip": "10.8.0.0",
+                                            "config": {
+                                                "ip": "10.8.0.0",
+                                                "prefix-length": 31
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "GigabitEthernet0/0/0/2",
+                "config": {
+                    "name": "GigabitEthernet0/0/0/2",
+                    "type": "iana-if-type:ethernetCsmacd",
+                    "mtu": 1514,
+                    "enabled": true
+                },
+                "subinterfaces": {
+                    "subinterface": [
+                        {
+                            "index": 0,
+                            "config": {
+                                "index": 0,
+                                "description": "Link to NXOS"
+                            },
+                            "openconfig-if-ip:ipv4": {
+                                "addresses": {
+                                    "address": [
+                                        {
+                                            "ip": "10.7.0.0",
+                                            "config": {
+                                                "ip": "10.7.0.0",
+                                                "prefix-length": 31
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

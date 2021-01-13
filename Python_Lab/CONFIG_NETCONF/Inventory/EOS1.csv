@@ -1,7 +1,11 @@
 interfaces,type,mtu,enabled,vlan,description,ip_address
-Loopback0,loopback,,True,,BGP Loopback,10.0.255.66/32
-Ethernet3,ethernet,1514,True,,Link to SROS,10.4.0.0/31
-Ethernet5,ethernet,1514,True,,Link to XR1,10.2.0.1/31
-Ethernet4,ethernet,1514,True,,Link to XR2,10.1.0.1/31
+Loopback0,loopback,,True,,BGP Loopback,10.0.255.64/32
+Ethernet2,ethernet,1514,True,,Link to SROS,10.3.0.1/31
+Ethernet6,ethernet,1514,True,,Link to XRVM,10.0.0.11/31
+Ethernet3,ethernet,1514,True,,Link to XR2,10.4.0.1/31
+Ethernet4,ethernet,1514,True,,Link to CSR,10.6.0.1/31
+Ethernet5,ethernet,1514,True,,Link to MX,10.5.0.1/31
+
+
 
 

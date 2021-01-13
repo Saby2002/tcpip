@@ -1,0 +1,5 @@
+interfaces,type,mtu,enabled,vlan,description,ip_address
+Loopback0,loopback,,True,,BGP Loopback,10.0.255.61/32
+GigabitEthernet0/0/0/0,ethernet,1514,True,,Link to R1-IOS,10.0.0.0/31
+GigabitEthernet0/0/0/1,ethernet,1514,True,,Link to VX1,10.0.0.4/31
+
