@@ -36,7 +36,8 @@ for inventory_entry in inventory['devices']:
 
     dc.prepareMessage(device_json)
     
-    if inventory_entry['nos'] != 'iosxr':
-        dc.pushConfig()
+    if inventory_entry['nos'] != 'iosxr' and 'eos':
 
+        dc.pushConfig()
+    
 

@@ -8,16 +8,16 @@
        "password": "saby"
      },
      {
-       "ip_address": "169.254.255.64",
-       "hostname": "EOS1",
-       "nos": "eos",
-       "username": "admin",
-       "password": "admin"
-     },
-     {
        "ip_address": "169.254.255.63",
        "hostname": "SROS",
        "nos": "sros",
+       "username": "admin",
+       "password": "DevOps@123"
+     },
+     {
+       "ip_address": "169.254.255.64",
+       "hostname": "EOS1",
+       "nos": "eos",
        "username": "admin",
        "password": "admin"
      },

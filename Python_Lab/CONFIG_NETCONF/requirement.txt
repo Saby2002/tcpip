@@ -5,3 +5,5 @@ json2xml
 grpcio
 grpcio-tools
 paramiko
+pyyaml
+

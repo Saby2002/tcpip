@@ -8,6 +8,7 @@ from bindings.gnmi_pb2 import Path, Update, SetRequest, TypedValue
 from bindings.gnmi_pb2_grpc import gNMIStub
 import grpc
 import json
+import copy
 
 # Class
 class NetConfDriver(object):
@@ -96,7 +97,14 @@ class GnmiDriver(object):
                     pp.origin = var1_origin
                     pp.elem.add(name=var1_path)
                     pp.elem.add(name=var2_path, key={'name': if_entry['name']})
-   
+
+
+                    if self.__nos == 'sros':
+                        if_entry['config']['type'] = re.sub('iana-if-type:', '', if_entry['config']['type'])
+                        
+                        if_entry['subinterfaces']['subinterface'][0]['ipv4'] = copy.deepcopy(if_entry['subinterfaces']['subinterface'][0]['openconfig-if-ip:ipv4'])
+                        del if_entry['subinterfaces']['subinterface'][0]['openconfig-if-ip:ipv4']
+
                     self.__gnmi_message.append(Update(path=pp, val=TypedValue(json_val=json.dumps(if_entry).encode('utf-8'))))
 
         #print(self.__gnmi_message)
@@ -104,10 +112,10 @@ class GnmiDriver(object):
     def pushConfig(self):
         print(f'Configuring {self.__hostname}...')
         with grpc.insecure_channel(f'{self.__ip_address}:{self.__port}', self.__metadata) as channel:
-            grpc.channel_ready_future(channel).result(timeout=5)
+            grpc.channel_ready_future(channel).result(timeout=10)
 
             stub = gNMIStub(channel)
-            response = stub.Set(SetRequest(update=self.__gnmi_message), metadata = self.__metadata)
+            response = stub.Set(SetRequest(update=self.__gnmi_message), metadata=self.__metadata)
 
             print(response)
 
