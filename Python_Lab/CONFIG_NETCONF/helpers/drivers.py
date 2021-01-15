@@ -4,7 +4,10 @@
 from ncclient import manager
 import os
 import re
-
+from bindings.gnmi_pb2 import Path, Update, SetRequest, TypedValue
+from bindings.gnmi_pb2_grpc import gNMIStub
+import grpc
+import json
 
 # Class
 class NetConfDriver(object):
@@ -69,4 +72,42 @@ class NetConfDriver(object):
 
         elif self.__nos == 'eos':
             self.__xml = re.sub('<oc-if:interface><oc-if:name>','<oc-if:interface><oc-if:name nc:operation="replace">', self.__xml)
-            self.__xml = re.sub('<oc-ip:config><oc-ip:ip>','<oc-ip:config><addr-type xmlns="http://arista.com/yang/openconfig/interfaces/augments">PRIMARY</addr-type><oc-ip:ip>', self.__xml)        
+            self.__xml = re.sub('<oc-ip:config><oc-ip:ip>','<oc-ip:config><addr-type xmlns="http://arista.com/yang/openconfig/interfaces/augments">PRIMARY</addr-type><oc-ip:ip>', self.__xml)       
+
+
+class GnmiDriver(object):
+    def __init__(self, ip, host, nos, user, passwd):
+        self.__ip_address = ip
+        self.__hostname = host
+        self.__nos = nos
+        self.__metadata = [('username', user), ('password', passwd)]
+        self.__port = 6030 if self.__nos == 'sros' else 57400
+        
+    def prepareMessage(self, json_text):
+        temp_dict = json.loads(json_text)
+        self.__gnmi_message = []
+
+        for var1, var2 in temp_dict.items():
+            var1_origin, var1_path = var1.split(':')
+            
+            for var2_path, var3 in  var2.items():
+                for if_entry in var3:
+                    pp = Path()
+                    pp.origin = var1_origin
+                    pp.elem.add(name=var1_path)
+                    pp.elem.add(name=var2_path, key={'name': if_entry['name']})
+   
+                    self.__gnmi_message.append(Update(path=pp, val=TypedValue(json_val=json.dumps(if_entry).encode('utf-8'))))
+
+        #print(self.__gnmi_message)
+
+    def pushConfig(self):
+        print(f'Configuring {self.__hostname}...')
+        with grpc.insecure_channel(f'{self.__ip_address}:{self.__port}', self.__metadata) as channel:
+            grpc.channel_ready_future(channel).result(timeout=5)
+
+            stub = gNMIStub(channel)
+            response = stub.Set(SetRequest(update=self.__gnmi_message), metadata = self.__metadata)
+
+            print(response)
+

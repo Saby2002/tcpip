@@ -2,3 +2,6 @@ pyang
 pyangbind
 ncclient==0.6.7
 json2xml
+grpcio
+grpcio-tools
+paramiko

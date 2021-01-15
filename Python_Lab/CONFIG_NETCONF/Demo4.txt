@@ -1,0 +1,4 @@
+Extend the inventory with the type of the connectivity (netconf, gnmi)
+Extend the previous demo with the gNMI driver for the network
+Configure network elements using the gNMI
+Collect the information from the network elements using gNMI

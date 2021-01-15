@@ -3,7 +3,7 @@
 # Module
 from helpers.functions import jsontodict,csvtodict
 from helpers.yangbuilder import YANGBuilder
-from helpers.drivers import NetConfDriver
+from helpers.drivers import NetConfDriver,GnmiDriver
 
 
 # Variable
@@ -21,9 +21,22 @@ for inventory_entry in inventory['devices']:
     device_json = ddm.getJSON()
 
     # Netconf Operation
-    dc = NetConfDriver(ip=inventory_entry['ip_address'], host=inventory_entry['hostname'],
-                       nos=inventory_entry['nos'], user=inventory_entry['username'],
-                       passwd=inventory_entry['password'])
+   # dc = NetConfDriver(ip=inventory_entry['ip_address'], host=inventory_entry['hostname'],
+                       #nos=inventory_entry['nos'], user=inventory_entry['username'],
+                       #passwd=inventory_entry['password'])
 
-    dc.prepareMessage(device_json, path_temporary)
-    dc.pushConfig()
+   # dc.prepareMessage(device_json, path_temporary)
+   # dc.pushConfig()
+
+
+    # Gnmi Operation
+    dc = GnmiDriver(ip=inventory_entry['ip_address'], host=inventory_entry['hostname'],
+                    nos=inventory_entry['nos'], user=inventory_entry['username'],
+                    passwd=inventory_entry['password'])
+
+    dc.prepareMessage(device_json)
+    
+    if inventory_entry['nos'] != 'iosxr':
+        dc.pushConfig()
+
+
