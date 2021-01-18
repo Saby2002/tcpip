@@ -9,6 +9,7 @@ from bindings.gnmi_pb2_grpc import gNMIStub
 import grpc
 import json
 import copy
+import requests
 
 # Class
 class NetConfDriver(object):
@@ -118,4 +119,45 @@ class GnmiDriver(object):
             response = stub.Set(SetRequest(update=self.__gnmi_message), metadata=self.__metadata)
 
             print(response)
+
+class NetboxDriver(object):
+    def __init__(self, url, token):
+        self.__nb_url = url
+        self.__nb_token = token
+
+    def buildInventory(self, site_name):
+        result = {}
+
+        raw_data = []
+
+        response = requests.get(url=f'{self.__nb_url}/dcim/devices/?=site{site_name}&role=router',
+                                headers={'Authorization': f'Token {self.__nb_token}'})
+        
+        raw_data.append(response.json()['results'])
+
+        interface_list = []
+        for device_entry in response.json()['results']:
+            interfaces = requests.get(url=f'{self.__nb_url}/dcim/interfaces/?device_id={device_entry["id"]}',
+                                      headers={'Authorization': f'Token {self.__nb_token}'})
+
+            interface_list.extend(interfaces.json()['results']
+
+         
+        raw_data.append(interface_list)
+
+        ip_list = []
+        for device_entry in response.json()['results']:
+            ips = requests.get(url=f'{self.__nb_url}/ipam/ip-addresses/?device_id={device_entry["id"]}',
+                                      headers={'Authorization': f'Token {self.__nb_token}'})
+
+            ip_list.extend(ips.json()['results']
+
+        raw_data.append(ip_list)
+
+        for entry in raw_data:
+            print(f'\n\nblock: \n{entry}')
+
+        return result
+
+
 
