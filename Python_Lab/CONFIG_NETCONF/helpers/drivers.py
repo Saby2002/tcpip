@@ -126,7 +126,7 @@ class NetboxDriver(object):
         self.__nb_token = token
 
     def buildInventory(self, site_name):
-        result = {}
+        result = {'devices': []}
 
         raw_data = []
 
@@ -140,7 +140,7 @@ class NetboxDriver(object):
             interfaces = requests.get(url=f'{self.__nb_url}/dcim/interfaces/?device_id={device_entry["id"]}',
                                       headers={'Authorization': f'Token {self.__nb_token}'})
 
-            interface_list.extend(interfaces.json()['results']
+            interface_list.extend(interfaces.json()['results'])
 
          
         raw_data.append(interface_list)
@@ -150,12 +150,24 @@ class NetboxDriver(object):
             ips = requests.get(url=f'{self.__nb_url}/ipam/ip-addresses/?device_id={device_entry["id"]}',
                                       headers={'Authorization': f'Token {self.__nb_token}'})
 
-            ip_list.extend(ips.json()['results']
+            ip_list.extend(ips.json()['results'])
 
         raw_data.append(ip_list)
+        
 
-        for entry in raw_data:
-            print(f'\n\nblock: \n{entry}')
+        for device in raw_data[0]:
+            temp_container = {}
+            temp_container.update({'hostname': device['name']})
+            temp_container.update({'nos': device['platform']['name']})
+
+            for interface in raw_data[1]:
+                if interface['device']['id'] == device['id'] and interface['mgmt_only']:
+
+                    for ip_address in raw_data[2]:
+                        if ip_address['assigned_object_type'] == 'dcim.interface' and ip_address['assigned_object_id'] == interface['id']:
+                            temp_container.update({'ip_address': ip_address['address'].split('/')[0]})
+
+            result['devices'].append(temp_container)
 
         return result
 

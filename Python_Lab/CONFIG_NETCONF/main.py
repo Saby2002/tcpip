@@ -18,6 +18,7 @@ site_name = 'lab-nat'
 #inventory = jsontodict(path_inventory)
 nb = NetboxDriver(url=netbox_url, token=netbox_token)
 inventory = nb.buildInventory(site_name=site_name)
+print(inventory)
 
 if False:
     for inventory_entry in inventory['devices']:
