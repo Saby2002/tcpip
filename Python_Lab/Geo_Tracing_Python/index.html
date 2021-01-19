@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_37704b25790342c6bce989909694ce9b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_37704b25790342c6bce989909694ce9b" ></div>
+        
+</body>
+<script>    
+    
+            var map_37704b25790342c6bce989909694ce9b = L.map(
+                "map_37704b25790342c6bce989909694ce9b",
+                {
+                    center: [0, 0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_93a1cc00be374e859b6f4cc8239dd00b = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_37704b25790342c6bce989909694ce9b);
+        
+    
+            var marker_2a871b18a6134ff19db6a88a09c0e96c = L.marker(
+                [45.3704, -75.9198],
+                {}
+            ).addTo(map_37704b25790342c6bce989909694ce9b);
+        
+    
+            var icon_23aaf95afbcc4490bd66c75fd1f6b313 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_2a871b18a6134ff19db6a88a09c0e96c.setIcon(icon_23aaf95afbcc4490bd66c75fd1f6b313);
+        
+    
+        var popup_4a19452500f64bc7b11949ea48c2186a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_03fb6c5bbc1f49ef8361ef3784ce56ae = $(`<div id="html_03fb6c5bbc1f49ef8361ef3784ce56ae" style="width: 100.0%; height: 100.0%;">131.228.56.70, LUCENT-CIO, AS10455, CAN</div>`)[0];
+            popup_4a19452500f64bc7b11949ea48c2186a.setContent(html_03fb6c5bbc1f49ef8361ef3784ce56ae);
+        
+
+        marker_2a871b18a6134ff19db6a88a09c0e96c.bindPopup(popup_4a19452500f64bc7b11949ea48c2186a)
+        ;
+
+        
+    
+    
+            var marker_aba21037718545d797cfeb39c40b0fed = L.marker(
+                [28.6519, 77.2315],
+                {}
+            ).addTo(map_37704b25790342c6bce989909694ce9b);
+        
+    
+            var icon_ebd7a657afaa4718a010b481a37e0365 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_aba21037718545d797cfeb39c40b0fed.setIcon(icon_ebd7a657afaa4718a010b481a37e0365);
+        
+    
+        var popup_76d62e7487234e9994224eb26ff2b326 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d049ef2ad5fd47838b84589afe334156 = $(`<div id="html_d049ef2ad5fd47838b84589afe334156" style="width: 100.0%; height: 100.0%;">49.36.135.9, Reliance Jio Infocomm Limited, AS55836, IND</div>`)[0];
+            popup_76d62e7487234e9994224eb26ff2b326.setContent(html_d049ef2ad5fd47838b84589afe334156);
+        
+
+        marker_aba21037718545d797cfeb39c40b0fed.bindPopup(popup_76d62e7487234e9994224eb26ff2b326)
+        ;
+
+        
+    
+    
+            var marker_8785de5648da43d282952473ddcf5ebd = L.marker(
+                [17.3753, 78.4744],
+                {}
+            ).addTo(map_37704b25790342c6bce989909694ce9b);
+        
+    
+            var icon_75a9488fa28d4dac85dbe59b747b9932 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_8785de5648da43d282952473ddcf5ebd.setIcon(icon_75a9488fa28d4dac85dbe59b747b9932);
+        
+    
+        var popup_767e69ae17c84b7f8e2f054bc9d30abc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_92b85104a8864c16aec7712166eafa2a = $(`<div id="html_92b85104a8864c16aec7712166eafa2a" style="width: 100.0%; height: 100.0%;">14.192.2.148, CtrlS Datacenters Ltd., AS18229, IND</div>`)[0];
+            popup_767e69ae17c84b7f8e2f054bc9d30abc.setContent(html_92b85104a8864c16aec7712166eafa2a);
+        
+
+        marker_8785de5648da43d282952473ddcf5ebd.bindPopup(popup_767e69ae17c84b7f8e2f054bc9d30abc)
+        ;
+
+        
+    
+    
+            var marker_27885b6925774483a7d65ffbc6d71a0e = L.marker(
+                [12.9719, 77.5937],
+                {}
+            ).addTo(map_37704b25790342c6bce989909694ce9b);
+        
+    
+            var icon_560d3041f87141d7a304ac770d037282 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_27885b6925774483a7d65ffbc6d71a0e.setIcon(icon_560d3041f87141d7a304ac770d037282);
+        
+    
+        var popup_4858a6d79e38497782640a31f24200de = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2c28e47149794bfa8d03e2320d3c5376 = $(`<div id="html_2c28e47149794bfa8d03e2320d3c5376" style="width: 100.0%; height: 100.0%;">111.125.192.198, Bell Teleservices India Pvt Ltd., ISP having own OFC network in Bangalore, India., AS45648, IND</div>`)[0];
+            popup_4858a6d79e38497782640a31f24200de.setContent(html_2c28e47149794bfa8d03e2320d3c5376);
+        
+
+        marker_27885b6925774483a7d65ffbc6d71a0e.bindPopup(popup_4858a6d79e38497782640a31f24200de)
+        ;
+
+        
+    
+</script>

@@ -4,7 +4,7 @@
 from helpers.functions import jsontodict,csvtodict
 from helpers.yangbuilder import YANGBuilder
 from helpers.drivers import NetConfDriver,GnmiDriver,NetboxDriver
-
+import datetime
 
 # Variable
 path_inventory = 'Inventory/inventory.json'
@@ -16,9 +16,14 @@ site_name = 'lab-nat'
 
 # Body
 #inventory = jsontodict(path_inventory)
+print(f'Start Time {datetime.datetime.now()}')
+
 nb = NetboxDriver(url=netbox_url, token=netbox_token)
 inventory = nb.buildInventory(site_name=site_name)
 print(inventory)
+
+print(f'End Time {datetime.datetime.now()}')
+
 
 if False:
     for inventory_entry in inventory['devices']:

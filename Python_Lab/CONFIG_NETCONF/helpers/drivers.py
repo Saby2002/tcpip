@@ -10,6 +10,7 @@ import grpc
 import json
 import copy
 import requests
+import datetime
 
 # Class
 class NetConfDriver(object):
@@ -130,10 +131,15 @@ class NetboxDriver(object):
 
         raw_data = []
 
+        print(f'Request 1 Start {datetime.datetime.now()}')
         response = requests.get(url=f'{self.__nb_url}/dcim/devices/?=site{site_name}&role=router',
                                 headers={'Authorization': f'Token {self.__nb_token}'})
-        
+        print(f'Request 1 Ends {datetime.datetime.now()}')
+
         raw_data.append(response.json()['results'])
+         
+         
+        print(f'Request 2 Start {datetime.datetime.now()}')
 
         interface_list = []
         for device_entry in response.json()['results']:
@@ -141,9 +147,13 @@ class NetboxDriver(object):
                                       headers={'Authorization': f'Token {self.__nb_token}'})
 
             interface_list.extend(interfaces.json()['results'])
+        
+        print(f'Request 2 Ends {datetime.datetime.now()}')
 
          
         raw_data.append(interface_list)
+
+        print(f'Request 3 Start {datetime.datetime.now()}')
 
         ip_list = []
         for device_entry in response.json()['results']:
@@ -154,6 +164,7 @@ class NetboxDriver(object):
 
         raw_data.append(ip_list)
         
+        print(f'Request 3 ends {datetime.datetime()}')
 
         for device in raw_data[0]:
             temp_container = {}
