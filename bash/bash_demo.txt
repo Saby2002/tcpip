@@ -1,0 +1,6 @@
+- Create a Bash Script which will create the necessary network emulation (topology)
+- The bridges shall be created
+- The Docker Servcie shall be started and the appropriate containers launched
+- The corresponding modification of the iptables shall be done
+- It shall copy default VM images into the corresponding file, if the VMs does not exits, then  shall be launched
+- The script should sleep until VMs boot up
