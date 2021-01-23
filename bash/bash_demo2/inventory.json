@@ -7,7 +7,7 @@
 	},
         {
             "hostname": "XR1",
-            "ip_address": "169.254.255.66",
+            "ip_address": "169.254.255.65",
             "nos": "cisco-iosxr"
         },
         {
