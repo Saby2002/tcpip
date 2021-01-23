@@ -1,0 +1,12 @@
+- Read list of the devices and its attribute from JSON File and parse that information
+- Connect to the network elements (Arista EOS, Cisco IOS XR, Cumulus Linux and NOKIA SROS) over SSH and collect information about port status
+- Save that information in vendor agnostic format using the following template
+
+interfaces:
+  interface:
+    - name: Eth1
+      state:
+        name: Eth
+        type: Ethernet/Loopback
+        admin: up
+        state: up

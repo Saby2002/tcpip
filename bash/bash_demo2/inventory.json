@@ -1,0 +1,29 @@
+{
+    "devices": [
+        {
+	    "hostname": "XRVM",
+	    "ip_address": "169.254.255.61",
+	    "nos": "cisco-iosxr"
+	},
+        {
+            "hostname": "XR1",
+            "ip_address": "169.254.255.66",
+            "nos": "cisco-iosxr"
+        },
+        {
+            "hostname": "SROS",
+            "ip_address": "169.254.255.63",
+            "nos": "sros"
+        },
+        {
+            "hostname": "EOS1",
+            "ip_address": "169.254.255.64",
+            "nos": "arista-eos"
+        },
+        {
+            "hostname": "VX1",
+            "ip_address": "169.254.255.62",
+            "nos": "cumulus-linux"
+        }
+    ]
+}
