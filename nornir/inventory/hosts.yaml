@@ -1,0 +1,17 @@
+---
+router1:
+   # well-known attributes; hostname, username, password, platform and port
+   hostname: XRVM
+   platform: ios-xr
+
+
+   groups: # group membership
+        - Core router
+        - ios-xr
+
+   data: # User-defined data
+        - site:local
+        - role:Core_Router
+        - region: Ind
+
+...
