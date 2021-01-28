@@ -1,0 +1,6 @@
+# The objective of this module is to show you a few things
+- How to create your own complex tasks by leveraging existing tasks
+- How complex workflows become simple thanks to the power of Python
+
+To do that, we are going to create a task that sync users; it will add missing users, modify the ones that need to be modified and remove old users. This task will be platform agnostic and will support even platforms without hierarchical config.
+
