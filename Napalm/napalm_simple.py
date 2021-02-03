@@ -7,18 +7,18 @@ from napalm import get_network_driver
 
 
 # Variables
-XRVM = dict(
+XR1 = dict(
         hostname="tcpipworld",
         device_type="iosxr",
         username="saby",
         password=getpass(),
-        optional_args={},
+        #optional_args={},
 )
 
 # Body
-device_type = XRVM.pop("device_type")
+device_type = XR1.pop("device_type")
 driver = get_network_driver(device_type)
-device = driver(**XRVM)
+device = driver(**XR1)
 
 print()
 print("\n\n>>> Test device open")
