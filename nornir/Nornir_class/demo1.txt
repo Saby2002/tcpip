@@ -1,0 +1,5 @@
+# Senario 1 
+- Create inventory file for a sample network
+- Create Jinja2 templates to configure interfaces ( or use pre-build)
+- Create a script using Nornir template the configuration
+- Validate the created configuration files

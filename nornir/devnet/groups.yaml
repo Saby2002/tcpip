@@ -1,0 +1,6 @@
+---
+cisco:
+   nornir_username: saby
+   nornir_password: saby
+   nornir_nos: iosxr
+   nornir_ssh_port: 22

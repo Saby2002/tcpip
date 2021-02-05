@@ -1,0 +1,67 @@
+---
+leaf11:
+   hostame: leaf11.tcpipworld
+   groups:
+      - cumulus
+   data:
+      role: network_device
+      mgmt_ip: 169.254.255.62
+
+leaf12:
+   hostname: lead12.tcpipworld
+   groups:
+      - cumulus
+   data:
+      role: network_device
+      mgmt_ip: 169.254.255.162
+
+leaf13:
+   hostame: leaf13.tcpipworld
+   groups:
+      - arista
+   data:
+      role: network_device
+      mgmt_ip: 169.254.255.64
+
+leaf14:
+   hostname: lead14.tcpipworld
+   groups:
+      - arista
+   data:
+      role: network_device 
+      mgmt_ip: 169.254.255.164
+
+spine1:
+   hostame: spine1.tcpipworld
+   groups:
+      - cumulus
+   data:
+      role: network_device
+      mgmt_ip: 169.254.255.165
+
+spine2:
+   hostname: spine2.tcpipworld
+   groups:
+      - cumulus
+   data:
+      role: network_device
+      mgmt_ip: 169.254.255.166
+
+border1:
+   hostame: border1.tcpipworld
+   groups:
+      - cumulus
+   data:
+      role: network_device
+      mgmt_ip: 169.254.255.167
+
+border2:
+   hostname: border2.tcpipworld
+   groups:
+      - cumulus
+   data:
+      role: network_device
+      mgmt_ip: 169.254.255.168
+      
+      
+...

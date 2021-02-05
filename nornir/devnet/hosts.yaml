@@ -1,0 +1,5 @@
+---
+rtr1:
+    groups: 
+        - cisco
+    nornir_host: 169.254.255.61

@@ -1,0 +1,12 @@
+---
+cumulus:
+   version: 4.2.1
+   management_api:
+        - cli
+arista:
+   version: 4.24.F
+   management_api:
+        - cli
+        - netconf
+        - gnmi
+...
