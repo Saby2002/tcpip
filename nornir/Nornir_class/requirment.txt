@@ -1,2 +1,5 @@
 jinja2
 nornir
+nornir_utils
+requests
+pynetbox

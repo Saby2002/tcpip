@@ -1,0 +1,6 @@
+# Demo 4 
+- Measure performance with 10 workers
+- Change the number of workers in 1
+- Measure performance with 1 worker
+- Create a new task doing REST API request doing request
+- Measure the performance with 1 and 10 workers and compare the result.

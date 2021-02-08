@@ -1,0 +1,6 @@
+# Senario 5 :
+
+- Collect the information about devices and their interface from NETBOX as a separate task
+- Pass those results to the separate task with templating of the interface
+- Create a new templates to work with the NETBOX info
+- Generate the configuration files.

@@ -63,5 +63,14 @@ border2:
       role: network_device
       mgmt_ip: 169.254.255.168
       
-      
+netbox:
+   hostname: 
+   password: 0123456789abcdef0123456789abcdef01234567
+   data:
+      role: netbox
+      connectivity: 
+        protocol: http
+        ip: 0.0.0.0
+        port: 8000   
 ...
+

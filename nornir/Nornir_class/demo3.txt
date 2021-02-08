@@ -1,0 +1,5 @@
+# Scenario #3
+- Install nornir_utils library
+- Import print_results function and use it for printing results
+- Validate the content of the nornir.log
+- Add an error in tasks intentionally and check the output of log
