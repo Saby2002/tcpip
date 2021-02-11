@@ -1,0 +1,12 @@
+---
+hostname: foo
+loopback: 172.16.0.1
+maxint: 3
+banner: |
+   *****
+   This is a multi-line banner
+   Preserving the newlines
+   *****
+   Down to line 6
+   *****
+...

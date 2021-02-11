@@ -1,0 +1,5 @@
+Using a list of hostnames created in YAML create Ansible inventory file:
+
+# for each host
+# 
+<hostname> ansible_user=cisco ansible_ssh_pass=cisco

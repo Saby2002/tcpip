@@ -1,0 +1,10 @@
+hostname <hostname>
+!
+interface loopback 0
+  ip address <loopback> 255.255.255.255
+!
+! for each interface
+interface <interface name>
+  no shutdown
+
+

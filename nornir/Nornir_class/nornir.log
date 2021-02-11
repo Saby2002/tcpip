@@ -608,3 +608,264 @@ IndexError: list index out of range
 2021-02-09 02:38:33,678 -  nornir.core -     INFO -        run() - Running task 'prepare_config' with args {'template_path': './Template', 'arg1': {'leaf11': [{'interface': 'eth0', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.62/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'swp1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:0::1/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:1::1/64', 'ip_gateway': None, 'enabled': 'True'}], 'leaf12': [{'interface': 'eth0', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.162/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'swp1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:2::1/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:3::1/64', 'ip_gateway': None, 'enabled': 'True'}], 'leaf13': [{'interface': 'Management1', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.64/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'Ethernet1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:4::1/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'Ethernet2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:5::1/64', 'ip_gateway': None, 'enabled': 'True'}], 'leaf14': [{'interface': 'Management1', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.164/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'Ethernet1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:6::1/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'Ethernet2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:7::1/64', 'ip_gateway': None, 'enabled': 'True'}], 'spine1': [{'interface': 'Management1', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.165/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'swp1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:0::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:2::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp3', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:4::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp4', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:6::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp5', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:8::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp6', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:10::2/64', 'ip_gateway': None, 'enabled': 'True'}], 'spine2': [{'interface': 'Management1', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.166/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'swp1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:1::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:3::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp3', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:5::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp4', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:7::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp5', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:9::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp6', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:11::2/64', 'ip_gateway': None, 'enabled': 'True'}], 'border1': [{'interface': 'Management1', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.167/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'swp1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:8::1/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:9::1/64', 'ip_gateway': None, 'enabled': 'True'}], 'border2': [{'interface': 'Management1', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.168/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'swp1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:10::1/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:11::1/64', 'ip_gateway': None, 'enabled': 'True'}]}} on 8 hosts
 2021-02-09 02:39:07,447 -  nornir.core -     INFO -        run() - Running task 'prepare_config' with args {'template_path': './Template', 'arg1': {'leaf11': [{'interface': 'eth0', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.62/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'swp1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:0::1/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:1::1/64', 'ip_gateway': None, 'enabled': 'True'}], 'leaf12': [{'interface': 'eth0', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.162/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'swp1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:2::1/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:3::1/64', 'ip_gateway': None, 'enabled': 'True'}], 'leaf13': [{'interface': 'Management1', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.64/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'Ethernet1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:4::1/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'Ethernet2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:5::1/64', 'ip_gateway': None, 'enabled': 'True'}], 'leaf14': [{'interface': 'Management1', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.164/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'Ethernet1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:6::1/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'Ethernet2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:7::1/64', 'ip_gateway': None, 'enabled': 'True'}], 'spine1': [{'interface': 'Management1', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.165/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'swp1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:0::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:2::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp3', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:4::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp4', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:6::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp5', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:8::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp6', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:10::2/64', 'ip_gateway': None, 'enabled': 'True'}], 'spine2': [{'interface': 'Management1', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.166/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'swp1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:1::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:3::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp3', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:5::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp4', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:7::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp5', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:9::2/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp6', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:11::2/64', 'ip_gateway': None, 'enabled': 'True'}], 'border1': [{'interface': 'Management1', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.167/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'swp1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:8::1/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:9::1/64', 'ip_gateway': None, 'enabled': 'True'}], 'border2': [{'interface': 'Management1', 'vlan': None, 'vrf': 'mgmt', 'ip_address': '169.254.255.168/24', 'ip_gateway': '169.254.255.1', 'enabled': 'True'}, {'interface': 'swp1', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:10::1/64', 'ip_gateway': None, 'enabled': 'True'}, {'interface': 'swp2', 'vlan': None, 'vrf': None, 'ip_address': 'fc00:10:0:11::1/64', 'ip_gateway': None, 'enabled': 'True'}]}} on 8 hosts
 2021-02-09 03:34:41,932 -  nornir.core -     INFO -        run() - Running task 'netbox_poll' with args {} on 1 hosts
+2021-02-09 12:30:10,223 -  nornir.core -     INFO -        run() - Running task 'netbox_poll' with args {} on 1 hosts
+2021-02-09 13:24:25,548 -  nornir.core -     INFO -        run() - Running task 'prepare_config2' with args {'template_path': './Template', 'nb': <pynetbox.core.api.Api object at 0x7fa1bfa899a0>} on 8 hosts
+2021-02-09 13:24:25,857 - nornir.core.task -    ERROR -      start() - Host 'leaf11': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:25,881 - nornir.core.task -    ERROR -      start() - Host 'leaf12': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:25,921 - nornir.core.task -    ERROR -      start() - Host 'leaf14': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:26,080 - nornir.core.task -    ERROR -      start() - Host 'leaf13': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:26,118 - nornir.core.task -    ERROR -      start() - Host 'border1': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:26,142 - nornir.core.task -    ERROR -      start() - Host 'spine2': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:26,299 - nornir.core.task -    ERROR -      start() - Host 'border2': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:26,300 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:29,026 -  nornir.core -     INFO -        run() - Running task 'prepare_config2' with args {'template_path': './Template', 'nb': <pynetbox.core.api.Api object at 0x7fe386148280>} on 8 hosts
+2021-02-09 13:24:29,183 - nornir.core.task -    ERROR -      start() - Host 'leaf12': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:29,200 - nornir.core.task -    ERROR -      start() - Host 'leaf14': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:29,232 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:29,313 - nornir.core.task -    ERROR -      start() - Host 'leaf11': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:29,314 - nornir.core.task -    ERROR -      start() - Host 'border1': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:29,378 - nornir.core.task -    ERROR -      start() - Host 'spine2': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:29,450 - nornir.core.task -    ERROR -      start() - Host 'border2': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:24:29,471 - nornir.core.task -    ERROR -      start() - Host 'leaf13': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 45, in prepare_config2
+    print(interfaces)
+NameError: name 'interfaces' is not defined
+
+2021-02-09 13:25:08,726 -  nornir.core -     INFO -        run() - Running task 'prepare_config2' with args {'template_path': './Template', 'nb': <pynetbox.core.api.Api object at 0x7f62b4f65700>} on 8 hosts
+2021-02-09 13:25:08,897 - nornir.core.task -    ERROR -      start() - Host 'leaf11': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 48, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:25:08,898 - nornir.core.task -    ERROR -      start() - Host 'leaf12': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 48, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:25:08,915 - nornir.core.task -    ERROR -      start() - Host 'leaf13': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 48, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:25:09,086 - nornir.core.task -    ERROR -      start() - Host 'spine2': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 48, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:25:09,239 - nornir.core.task -    ERROR -      start() - Host 'leaf14': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 48, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:25:09,258 - nornir.core.task -    ERROR -      start() - Host 'border1': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 48, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:25:09,309 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 48, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:25:09,395 - nornir.core.task -    ERROR -      start() - Host 'border2': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 48, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:34:18,697 -  nornir.core -     INFO -        run() - Running task 'prepare_config2' with args {'template_path': './Template', 'nb': <pynetbox.core.api.Api object at 0x7fd0800ea460>} on 8 hosts
+2021-02-09 13:34:19,236 - nornir.core.task -    ERROR -      start() - Host 'leaf11': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 49, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:34:19,309 - nornir.core.task -    ERROR -      start() - Host 'leaf12': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 49, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:34:19,325 - nornir.core.task -    ERROR -      start() - Host 'leaf13': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 49, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:34:19,414 - nornir.core.task -    ERROR -      start() - Host 'spine1': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 49, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:34:19,457 - nornir.core.task -    ERROR -      start() - Host 'leaf14': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 49, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:34:19,495 - nornir.core.task -    ERROR -      start() - Host 'spine2': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 49, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:34:19,540 - nornir.core.task -    ERROR -      start() - Host 'border2': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 49, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+
+2021-02-09 13:34:19,616 - nornir.core.task -    ERROR -      start() - Host 'border1': task 'prepare_config2' failed with traceback:
+Traceback (most recent call last):
+  File "/home/saby/tcpip/nornir/Nornir_class/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "netbox_nornir.py", line 49, in prepare_config2
+    return Result(host=task.host, result=result, changed=True)
+NameError: name 'result' is not defined
+

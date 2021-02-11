@@ -9,6 +9,7 @@ from nornir_utils.plugins.functions import print_result
 import jinja2
 import datetime
 import pynetbox
+from pprint import pprint
 
 
 
@@ -18,6 +19,12 @@ path = {
             "input": "./input/interfaces.csv",
             "templates": "./Template"
         }
+
+netbox_var = {
+             "url": "http://0.0.0.0:8000",
+             "token": "0123456789abcdef0123456789abcdef01234567"
+}
+
 
 # Nornir Task
 
@@ -32,18 +39,23 @@ def prepare_config(task: Task, template_path: str, arg1: dict) -> Result:
    
     return Result(host=task.host, result=result, changed=True)
 
+def prepare_config2(task: Task, template_path: str, nb: pynetbox.api) -> Result:
 
-def netbox_poll(task) -> Result:
-    nb = pynetbox.api(url=f"{task.host['connectivity']['protocol']}://{task.host['connectivity']['ip']}:{task.host['connectivity']['port']}", token=task.host.password)
-
-    interfaces = nb.dcim.interfaces.all()
+    interface = nb.dcim.interfaces.filter(device=task.host.name)
+    ip_address = nb.ipam.ip_addresses.filter(device=task.host.name)
     
-    for entry in interfaces:
-        print(dict(entry))
+    with open(f"{template_path}/{task.host.groups[0]}/interfaces2.j2", "r") as f:
+        active_template = jinja2.Template(f.read())
 
-    result = "AA"
+    result = active_template.render(interfaces=interfaces, ips=ip_address)
 
-    return Result(host=task.host, result=result)
+    print(f"{task.host.name}: Completed {datetime.datetime.now()}")
+
+    return Result(host=task.host, result=result, changed=True)
+
+
+    return Result(host=task.host, result=result, changed=True)
+
 
 
 # Body
@@ -56,11 +68,10 @@ if __name__ == "__main__":
     nr = InitNornir(config_file="config.yaml")
     
     fabric = nr.filter(role="network_device")
-    netbox = nr.filter(role="netbox")
-    
-    netbox_results = netbox.run(task=netbox_poll)
+   
+    nb = pynetbox.api(url=netbox_var["url"], token=netbox_var["token"])
 
-   # r1 = fabric.run(task=prepare_config, template_path=path["templates"], arg1=ifdict)
+    r1 = fabric.run(task=prepare_config2, template_path=path["templates"], nb=nb)
     
    # t2 = datetime.datetime.now()
    # print(f"Finished at {t2}, completed in {t2 - t1}")

@@ -1,0 +1,18 @@
+{%- for iface in interfaces %}
+auto {{ iface.interface }}
+iface {{ iface.interface }}
+{%- if iface.ip_address is defined and iface.ip_address %}
+    address {{iface.ip_address}}
+{%- endif %}
+{%- if iface.ip_gateway is defined and iface.ip_gateway %}
+    gateway {{iface.ip_gateway}}
+{%- endif %}
+{%- if iface.vrf is defined and iface.vrf %}
+    vrf {{iface.vrf}}
+{%- endif %}
+{%- if iface.enabled is defined and not iface.enabled %}
+    link down
+{%- endif %}
+{% endfor %}
+
+
